@@ -19,7 +19,7 @@ namespace UserGroupSample
             var result = await client.GetAsync($"{baseUrl}/iterations");
             Console.WriteLine(result.StatusCode);
             var stringResult = await result.Content.ReadAsStringAsync();
-            return System.Text.Json.JsonSerializer.Deserialize<Iterations>(stringResult);
+            return JsonConvert.DeserializeObject<Iterations>(stringResult);
         }
 
         public async static Task SetPrStatus(string baseUrl, int iteration, string status)
