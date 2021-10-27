@@ -32,7 +32,7 @@ namespace UserGroupSample.Controllers
         private static async Task ValidatePrTitle(string baseUrl, string prTitle)
         {
             var iterations = await PRClient.GetPullRequestIterations(baseUrl);
-            string pattern = @"bt-\d+ ";
+            string pattern = @"ado-\d+ ";
             Regex r = new Regex(pattern, RegexOptions.IgnoreCase);
             if (r.IsMatch(prTitle))
             {
